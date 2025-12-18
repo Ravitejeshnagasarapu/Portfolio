@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ravi Tejesh Nagasarapu | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Ravi Tejesh Nagasarapu - CSE Student at IIITDM Kancheepuram, specializing in AI, Machine Learning, and Software Development."
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ravi Tejesh Nagasarapu | Portfolio" />
+    <meta
+      property="og:description"
+      content="CSE Student specializing in AI, Machine Learning, and Software Development"
+    />
+    <meta property="og:image" content="contents/Images/preview.png" />
+    <!-- <meta property="og:url" content="https://your-portfolio-url.com" /> -->
+    <meta property="og:type" content="website" />
+
+    <!-- External Resources -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background -->
+    <div class="app-background"></div>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+      <div class="loader-content">
+        <div class="loader-logo">Ravi Tejesh</div>
+        <div class="loader-spinner"></div>
+        <p class="loader-text">Loading...</p>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">Ravi Tejesh</a>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link active" data-section="home">Home</a>
+          <a href="#about" class="nav-link" data-section="about">About</a>
+          <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+          <a href="#projects" class="nav-link" data-section="projects"
+            >Projects</a
+          >
+          <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle Theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="mobile-controls">
+          <button
+            class="theme-toggle mobile-theme"
+            id="mobileThemeToggle"
+            aria-label="Toggle Theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-link active" data-section="home">Home</a>
+        <a href="#about" class="mobile-link" data-section="about">About</a>
+        <a href="#skills" class="mobile-link" data-section="skills">Skills</a>
+        <a href="#projects" class="mobile-link" data-section="projects"
+          >Projects</a
+        >
+        <a href="#contact" class="mobile-link" data-section="contact"
+          >Contact</a
+        >
+      </div>
+    </nav>
+    <!-- Home Section -->
+    <section id="home" class="hero">
+      <div class="glass-bg"></div>
+      <div class="hero-bg"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="avatar fade-in">
+            <img
+              src="contents/Images/me.png"
+              alt="Ravi Tejesh Nagasarapu"
+              class="avatar_img"
+              width="200"
+              height="200"
+              loading="lazy"
+              draggable="false"
+            />
+          </div>
+
+          <h1 class="name fade-in-delay-1">Ravi Tejesh Nagasarapu</h1>
+
+          <span class="title fade-in-delay-2"
+            >CSE Student | AI Major | Aspiring Software Developer</span
+          >
+
+          <p class="location fade-in-delay-2">Chennai, Tamil Nadu, India</p>
+
+          <h4 class="subtitle fade-in-delay-3">AT IIITDM, Kancheepuram</h4>
+
+          <div class="cta-buttons fade-in-delay-4">
+            <a href="#projects" class="btn primary-btn">View Projects</a>
+            <a href="#contact" class="btn secondary-btn">Contact Me</a>
+            <a
+              href="contents/Nagasarapu_Ravi_Tejesh_Resume.pdf"
+              download
+              class="btn download-btn"
+              aria-label="Download CV"
+            >
+              <i class="fas fa-download"></i>
+              Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="#about"
+        class="scroll-down fade-in-delay-5"
+        aria-label="Scroll down"
+      >
+        <i class="fas fa-arrow-down"></i>
+      </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header scroll-animate">
+          <h2 class="section-title">About Me</h2>
+          <div class="title-underline"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-left scroll-animate">
+            <div class="summary-card">
+              <h3 class="card-title">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+                Summary
+              </h3>
+              <div class="content-wrap">
+                <p>
+                  I am a Computer Science and Engineering (Artificial
+                  Intelligence) undergraduate with a strong foundation in data
+                  structures, algorithms, and software development. Interested
+                  in building scalable, reliable systems and applying machine
+                  learning concepts to real-world problem
+                </p>
+              </div>
+              <div class="content-wrap">
+                <p>
+                  As a fresher, I am focused on strengthening my fundamentals,
+                  gaining hands-on experience through projects, and exploring
+                  opportunities that allow me to learn, innovate, and contribute
+                  effectively in the tech industry.
+                </p>
+              </div>
+            </div>
+
+            <div class="achievement-card">
+              <h3 class="achievement-title">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline
+                    points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                  ></polyline>
+                </svg>
+                Recent Achievement
+              </h3>
+              <p>
+                Earned Job Simulation Certificates in
+                <strong>AWS Solutions Architecture</strong> and
+                <strong>TCS iON - Young Professional</strong>, gaining practical
+                exposure to cloud computing fundamentals, solution design
+                concepts, and industry-relevant professional skills.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-right scroll-animate">
+            <h3 class="education-title">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+              Education
+            </h3>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>
+                  Indian Institute of Information Technology Design &
+                  Manufacturing, Kancheepuram
+                </h4>
+                <p class="degree">
+                  Bachelor of Technology - BTech, CSE with Major in Artificial
+                  Intelligence
+                </p>
+                <p class="period">August 2023 - June 2027</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h4>Narayana Junior College - India</h4>
+                <p class="degree">Intermediate, MPC</p>
+                <p class="period">June 2021 - April 2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-header scroll-animate">
+          <h2 class="section-title">Skills & Experience</h2>
+          <div class="title-underline"></div>
+          <p class="section-subtitle">
+            A comprehensive overview of my technical abilities and professional
+            journey.
+          </p>
+        </div>
+
+        <div class="skills-grid" id="skillsGrid"></div>
+        <div class="experience-section">
+          <div class="experience-grid" id="experienceGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <div class="section-header scroll-animate">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="title-underline"></div>
+          <p class="section-subtitle">
+            A selection of projects where I've applied AI, automation, and web
+            development skills to solve real-world problems.
+          </p>
+        </div>
+
+        <div class="project-search scroll-animate">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="text"
+            id="projectSearch"
+            placeholder="Search projects..."
+          />
+          <button class="clear-search" id="clearSearch">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="project-filters scroll-animate" id="projectFilters">
+          <button class="filter-btn active" data-category="All">All</button>
+          <button class="filter-btn" data-category="AI & Automation">
+            AI & Automation
+          </button>
+          <button class="filter-btn" data-category="Web Development">
+            Web Development
+          </button>
+          <button class="filter-btn" data-category="Tools & Core">
+            Tools & Core
+          </button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Projects will be inserted by JavaScript -->
+        </div>
+
+        <div class="load-more-container" id="loadMoreContainer">
+          <button class="load-more-btn" id="loadMoreBtn">
+            <span>Load More Projects</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="no-results" id="noResults">
+          <div class="no-results-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3>No projects found</h3>
+          <p>Try adjusting your search or filters.</p>
+          <button class="clear-filters-btn" id="clearFilters">
+            Clear all filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-gradient-line"></div>
+      <div class="container">
+        <div class="section-header scroll-animate">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities to be part of your team and visions.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info scroll-animate">
+            <div class="connect-card">
+              <h3>Connect with me</h3>
+              <div class="contact-links">
+                <a
+                  href="mailto:ravitejeshnagasarapu@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=ravitejeshnagasarapu@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                >
+                  <div class="contact-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      ></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <span>Email Me</span>
+                </a>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=ravitejeshnagasarapu@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link secondary"
+                >
+                  <div class="contact-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      ></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <span>Open in Gmail</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ravitejeshnagasarapu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                >
+                  <div class="contact-icon linkedin">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      ></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </div>
+                  <span>LinkedIn Profile</span>
+                </a>
+                <a
+                  href="https://github.com/Ravitejeshnagasarapu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                >
+                  <div class="contact-icon github">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span>GitHub Profile</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-container scroll-animate">
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  autocomplete="off"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="submit-btn">
+                Send Message
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p>
+            &copy; <span id="currentYear"></span> Ravi Tejesh Nagasarapu. All
+            rights reserved.
+          </p>
+        </footer>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+
+    <!-- Certificate Modal -->
+    <div class="certificate-modal" id="certificateModal" aria-hidden="true">
+      <div class="certificate-backdrop" data-close-modal></div>
+
+      <div
+        class="certificate-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="certificateTitle"
+      >
+        <button
+          class="certificate-close"
+          aria-label="Close certificate preview"
+          data-close-modal
+        >
+          ✕
+        </button>
+
+        <h3 id="certificateTitle">Certificate Preview</h3>
+
+        <iframe
+          id="certificateFrame"
+          src=""
+          loading="lazy"
+          title="Certificate Preview"
+        ></iframe>
+      </div>
+    </div>
+  </body>
+</html>
+
