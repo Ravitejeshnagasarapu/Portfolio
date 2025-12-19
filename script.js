@@ -681,32 +681,37 @@ const initContactForm = () => {
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   const submitBtn = document.getElementById("submitBtn");
+  const honeypot = document.getElementById("company");
 
   if (!form || !status || !submitBtn) return;
 
   const pageLoadTime = Date.now();
-
-  emailjs.init("mMZFONIDdi84BklTT"); // Replace with public ID
+  emailjs.init("YOUR_PUBLIC_KEY"); // 🔴 replace
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const now = Date.now();
 
-    // Rate limiting
+    /* 🪤 Honeypot check */
+    if (honeypot && honeypot.value.trim() !== "") {
+      return; // silently drop bot submission
+    }
+
+    /* ⏱ Rate limiting */
     const lastSent = localStorage.getItem(CONTACT_LAST_SENT_KEY);
     if (lastSent && now - Number(lastSent) < CONTACT_COOLDOWN_MS) {
       const remaining = Math.ceil(
         (CONTACT_COOLDOWN_MS - (now - Number(lastSent))) / 1000
       );
-      status.textContent = `Please wait ${remaining}s before sending another message.`;
+      status.textContent = `Please wait ${remaining}s before sending again.`;
       status.className = "form-status visible error";
       return;
     }
 
-    // Time-on-page check
+    /* 🤖 Time-on-page check */
     if (now - pageLoadTime < MIN_TIME_ON_PAGE_MS) {
-      status.textContent = "Please take a moment before submitting the form.";
+      status.textContent = "Please wait a few seconds before submitting.";
       status.className = "form-status visible error";
       return;
     }
@@ -715,63 +720,62 @@ const initContactForm = () => {
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // 🧹 Basic spam checks
     if (message.length < MIN_MESSAGE_LENGTH) {
-      status.textContent = "Message is too short. Please add more details.";
+      status.textContent = "Message is too short.";
       status.className = "form-status visible error";
       return;
     }
 
-    // Disable + loading
     submitBtn.disabled = true;
     submitBtn.classList.add("loading");
-
     status.textContent = "Sending message...";
     status.className = "form-status visible";
 
-    // Admin email
-    const adminParams = {
-      from_name: name,
-      from_email: email,
-      message: message,
-    };
-
-    // Auto-reply
-    const autoReplyParams = {
-      to_name: name,
-      to_email: email,
-    };
-
-    emailjs
-      .send(
-        "service_9qt2rc5",      // Replace with service ID
-        "template_60tqodl",     // Replace with admin template ID
-        adminParams
-      )
-      .then(() => {
-        return emailjs.send(
-          "YOUR_SERVICE_ID",
-          "template_szss3td", // Replace with Client template ID
-          autoReplyParams
-        );
-      })
-      .then(() => {
-        localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
-
-        status.textContent =
-          "Message sent successfully. A confirmation email has been sent.";
-        status.classList.remove("error");
-        form.reset();
-      })
-      .catch(() => {
-        status.textContent =
-          "Something went wrong. Please try again later.";
-        status.classList.add("error");
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.classList.remove("loading");
-      });
+    /* 🛡 reCAPTCHA v3 */
+    grecaptcha.ready(() => {
+      grecaptcha
+        .execute("6Lf7EjEsAAAAACL0EM8NaNtV9hor942OIUQaKThS", { action: "contact" }) // Replace with Site Key
+        .then((token) => {
+          // Send admin mail
+          return emailjs.send(
+            "service_9qt2rc5",  // Replace with emailJS service ID
+            "template_60tqodl", // Replace with emailJS admin templete ID
+            {
+              from_name: name,
+              from_email: email,
+              message: message,
+              "g-recaptcha-response": token,
+            }
+          );
+        })
+        .then(() => {
+          // Auto-reply
+          return emailjs.send(
+            "service_9qt2rc5",  // Replace with emailJS service ID
+            "template_szss3td",  // Replace with emailJS client templete ID
+            {
+              to_name: name,
+              to_email: email,
+            }
+          );
+        })
+        .then(() => {
+          localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
+          status.textContent =
+            "Message sent successfully. Confirmation email sent.";
+          status.classList.remove("error");
+          form.reset();
+        })
+        .catch(() => {
+          status.textContent =
+            "Message could not be sent. Please try again later.";
+          status.classList.add("error");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("loading");
+        });
+    });
   });
 };
 
@@ -955,6 +959,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
