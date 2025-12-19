@@ -1739,6 +1739,13 @@ section::after {
   }
 }
 
+/* Disable hover overlay on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .experience-card::after {
+    display: none;
+  }
+}
+
 /* ===============================
    CERTIFICATE MODAL
    =============================== */
@@ -2891,4 +2898,5 @@ body.dark .navbar.scrolled {
     margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
   }
 }
+
 
