@@ -2801,8 +2801,19 @@ section::after {
 }
 
 @media (hover: none) and (pointer: coarse) {
+
   .experience-links {
-    justify-content: center;
+    position: static;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-gray-200);
+    display: flex;
+    justify-content: center;   /* center looks best on mobile */
+    gap: 0.75rem;
+  }
+
+  .dark .experience-links {
+    border-top-color: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -2996,5 +3007,35 @@ body.dark .navbar.scrolled {
   .experience-icon svg {
     stroke: currentColor;
     fill: none;
+  }
+}
+
+/* ================================
+   MOBILE UX POLISH
+   ================================ */
+@media (hover: none) and (pointer: coarse) {
+
+  /* Ensure top row flows naturally */
+  .experience-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .experience-type {
+    align-self: flex-start;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+
+  .experience-icon {
+    width: 42px;
+    height: 42px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .experience-icon:active {
+    transform: scale(0.94);
   }
 }
