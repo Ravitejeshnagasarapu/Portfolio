@@ -678,38 +678,57 @@ const initContactForm = () => {
 
   if (!form || !status || !submitBtn) return;
 
-  // Initialize EmailJS
-  emailjs.init("mMZFONIDdi84BklTT"); // Replace with Public ID
+  emailjs.init("mMZFONIDdi84BklTT"); // Replace with public ID
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Disable button + show spinner
     submitBtn.disabled = true;
     submitBtn.classList.add("loading");
 
     status.textContent = "Sending message...";
     status.className = "form-status visible";
 
-    const templateParams = {
-      from_name: document.getElementById("name").value,
-      from_email: document.getElementById("email").value,
-      message: document.getElementById("message").value,
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // 1️⃣ Mail to YOU
+    const adminParams = {
+      from_name: name,
+      from_email: email,
+      message: message,
+    };
+
+    // 2️⃣ Auto-reply to USER
+    const autoReplyParams = {
+      to_name: name,
+      to_email: email,
     };
 
     emailjs
       .send(
-        "service_9qt2rc5",   // Replace with service ID
-        "template_60tqodl",  // Replace with templete ID
-        templateParams
+        "service_9qt2rc5",        // Replace with service ID
+        "template_60tqodl",       // Replace with admin template ID
+        adminParams
       )
       .then(() => {
-        status.textContent = "Message sent successfully!";
+        // Send auto-reply
+        return emailjs.send(
+          "service_9qt2rc5",          // Replace with service ID
+          "template_szss3td",       // Replace with client templete ID
+          autoReplyParams
+        );
+      })
+      .then(() => {
+        status.textContent =
+          "Message sent successfully. You will receive a confirmation email.";
         status.classList.remove("error");
         form.reset();
       })
       .catch(() => {
-        status.textContent = "Failed to send message. Please try again.";
+        status.textContent =
+          "Something went wrong. Please try again later.";
         status.classList.add("error");
       })
       .finally(() => {
@@ -899,6 +918,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
