@@ -3039,3 +3039,57 @@ body.dark .navbar.scrolled {
     transform: scale(0.94);
   }
 }
+
+/* =====================================================
+   STEP 4 — HARD MOBILE EXPERIENCE LAYOUT FIX
+   ===================================================== */
+@media (hover: none) and (pointer: coarse) {
+
+  /* 1️⃣ Kill absolute positioning completely */
+  .experience-links {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    inset: auto !important;
+  }
+
+  /* 2️⃣ Make card content vertical */
+  .experience-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 3️⃣ Move icons AFTER all text */
+  .experience-links {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-gray-200);
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* 4️⃣ Icons must always be visible */
+  .experience-icon {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* 5️⃣ Badge should not fight layout */
+  .experience-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .experience-type {
+    align-self: flex-start;
+  }
+
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .dark .experience-links {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+}
