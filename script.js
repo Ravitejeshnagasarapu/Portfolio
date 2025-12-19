@@ -674,38 +674,61 @@ const initProjects = () => {
 const initContactForm = () => {
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
+  const submitBtn = document.getElementById("submitBtn");
 
-  if (!form || !status) return;
+  if (!form || !status || !submitBtn) return;
 
-  // Initialize EmailJS
-  emailjs.init("mMZFONIDdi84BklTT"); // Replace With Public ID
+  // EmailJS init
+  emailjs.init("mMZFONIDdi84BklTT"); // 🔴 replace
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    // Disable + Loading
+    submitBtn.disabled = true;
+    submitBtn.classList.add("loading");
+
     status.textContent = "Sending message...";
     status.className = "form-status visible";
 
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
     const templateParams = {
-      from_name: document.getElementById("name").value,
-      from_email: document.getElementById("email").value,
-      message: document.getElementById("message").value,
+      from_name: name,
+      from_email: email,
+      message: message,
     };
 
     emailjs
       .send(
-        "service_9qt2rc5",   // Replace with service ID
-        "template_60tqodl",  // Replace with templete ID
+        "service_9qt2rc5",   // 🔴 replace
+        "template_60tqodl",  // 🔴 replace
         templateParams
       )
       .then(() => {
         status.textContent = "Message sent successfully!";
         status.classList.remove("error");
+
+        // 📱 WhatsApp redirect
+        const whatsappNumber = "918925406340"; // 🔴 Replace Mobile Number
+        const whatsappMessage = encodeURIComponent(
+          `New message from Portfolio:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
+        window.open(
+          `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
+          "_blank"
+        );
         form.reset();
       })
       .catch(() => {
-        status.textContent = "Failed to send message. Try again.";
+        status.textContent = "Failed to send message. Please try again.";
         status.classList.add("error");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("loading");
       });
   });
 };
@@ -890,6 +913,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
