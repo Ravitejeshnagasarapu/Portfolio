@@ -1632,10 +1632,6 @@ section::after {
   justify-content: center;
   color: var(--accent-primary);
   box-shadow: var(--shadow-md);
-  /* opacity: 0;
-  transform: translateY(-6px) scale(0.9);
-  transition: transform 0.25s ease, opacity 0.25s ease,
-    background-color 0.25s ease, color 0.25s ease; */
 }
 
 /* Desktop default (hover-capable devices only) */
@@ -2778,10 +2774,10 @@ section::after {
   }
 
   .experience-links {
-    position: static;              /* remove absolute */
-    margin-top: 1rem;              /* space below text */
+    position: static;
+    margin-top: 1rem;
     display: flex;
-    justify-content: flex-start;   /* align nicely */
+    justify-content: flex-start;
     gap: 0.75rem;
   }
 
@@ -2799,7 +2795,7 @@ section::after {
     padding-top: 0.75rem;
     border-top: 1px solid var(--color-gray-200);
     display: flex;
-    justify-content: center;   /* center looks best on mobile */
+    justify-content: center;
     gap: 0.75rem;
   }
 
@@ -2809,7 +2805,7 @@ section::after {
 }
 
 /* =====================================================
-   STEP 2 — Mobile Experience Card Layout Fix
+   Mobile Experience Card Layout
    ===================================================== */
 @media (hover: none) and (pointer: coarse) {
 
@@ -2821,8 +2817,8 @@ section::after {
 
   /* Move icons below the content */
   .experience-links {
-    position: static;          /* remove absolute positioning */
-    margin-top: 0.75rem;       /* spacing from text */
+    position: static;
+    margin-top: 0.75rem;
     display: flex;
     justify-content: flex-start;
     gap: 0.75rem;
@@ -2943,18 +2939,18 @@ body.dark .navbar.scrolled {
    ===================================================== */
 @media (hover: none) and (pointer: coarse) {
 
-  /* ❌ Completely remove blur overlay */
+  /* Completely remove blur overlay */
   .experience-card::after {
     display: none !important;
     opacity: 0 !important;
   }
 
-  /* ❌ Disable hover transform */
+  /* Disable hover transform */
   .experience-card {
     transform: none !important;
   }
 
-  /* ✅ Make icons part of layout */
+  /* Make icons part of layout */
   .experience-links {
     position: relative !important;
     inset: auto !important;
@@ -2965,14 +2961,14 @@ body.dark .navbar.scrolled {
     z-index: 2;
   }
 
-  /* ✅ Icons always visible */
+  /* Icons always visible */
   .experience-icon {
     opacity: 1 !important;
     transform: none !important;
     pointer-events: auto;
   }
 
-  /* ❌ Kill hover triggers completely */
+  /* Kill hover triggers completely */
   .experience-card:hover,
   .experience-card:hover::after,
   .experience-card:hover .experience-icon {
@@ -3040,11 +3036,11 @@ body.dark .navbar.scrolled {
 }
 
 /* =====================================================
-   STEP 4 — HARD MOBILE EXPERIENCE LAYOUT FIX
+   HARD MOBILE EXPERIENCE LAYOUT
    ===================================================== */
 @media (hover: none) and (pointer: coarse) {
 
-  /* 1️⃣ Kill absolute positioning completely */
+  /* Kill absolute positioning completely */
   .experience-links {
     position: static !important;
     top: auto !important;
@@ -3052,13 +3048,13 @@ body.dark .navbar.scrolled {
     inset: auto !important;
   }
 
-  /* 2️⃣ Make card content vertical */
+  /* Make card content vertical */
   .experience-content {
     display: flex;
     flex-direction: column;
   }
 
-  /* 3️⃣ Move icons AFTER all text */
+  /* Move icons AFTER all text */
   .experience-links {
     margin-top: 1rem;
     padding-top: 0.75rem;
@@ -3068,13 +3064,13 @@ body.dark .navbar.scrolled {
     gap: 0.75rem;
   }
 
-  /* 4️⃣ Icons must always be visible */
+  /* Icons must always be visible */
   .experience-icon {
     opacity: 1 !important;
     transform: none !important;
   }
 
-  /* 5️⃣ Badge should not fight layout */
+  /* Badge should not fight layout */
   .experience-top {
     flex-direction: column;
     align-items: flex-start;
@@ -3155,8 +3151,8 @@ body.dark .navbar.scrolled {
 
 /* Reuse Education date styling */
 .experience-date {
-  font-size: inherit;          /* same as .period */
-  color: var(--text-muted);    /* same tone */
+  font-size: inherit;
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
@@ -3170,5 +3166,3 @@ body.dark .navbar.scrolled {
     font-size: 0.85rem;
   }
 }
-
-
