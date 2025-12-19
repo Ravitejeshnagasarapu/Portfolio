@@ -1,3 +1,9 @@
+// ============ ANTI-SPAM CONFIG ============
+const CONTACT_COOLDOWN_MS = 2 * 60 * 1000; // 2 minutes
+const MIN_MESSAGE_LENGTH = 10;
+const MIN_TIME_ON_PAGE_MS = 5000;
+const CONTACT_LAST_SENT_KEY = "contact_last_sent";
+
 // ============ DATA ============
 // ============ SKILLS ============
 const skillsData = [
@@ -678,29 +684,59 @@ const initContactForm = () => {
 
   if (!form || !status || !submitBtn) return;
 
+  const pageLoadTime = Date.now();
+
   emailjs.init("mMZFONIDdi84BklTT"); // Replace with public ID
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const now = Date.now();
+
+    // Rate limiting
+    const lastSent = localStorage.getItem(CONTACT_LAST_SENT_KEY);
+    if (lastSent && now - Number(lastSent) < CONTACT_COOLDOWN_MS) {
+      const remaining = Math.ceil(
+        (CONTACT_COOLDOWN_MS - (now - Number(lastSent))) / 1000
+      );
+      status.textContent = `Please wait ${remaining}s before sending another message.`;
+      status.className = "form-status visible error";
+      return;
+    }
+
+    // Time-on-page check
+    if (now - pageLoadTime < MIN_TIME_ON_PAGE_MS) {
+      status.textContent = "Please take a moment before submitting the form.";
+      status.className = "form-status visible error";
+      return;
+    }
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // 🧹 Basic spam checks
+    if (message.length < MIN_MESSAGE_LENGTH) {
+      status.textContent = "Message is too short. Please add more details.";
+      status.className = "form-status visible error";
+      return;
+    }
+
+    // Disable + loading
     submitBtn.disabled = true;
     submitBtn.classList.add("loading");
 
     status.textContent = "Sending message...";
     status.className = "form-status visible";
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    // 1️⃣ Mail to YOU
+    // Admin email
     const adminParams = {
       from_name: name,
       from_email: email,
       message: message,
     };
 
-    // 2️⃣ Auto-reply to USER
+    // Auto-reply
     const autoReplyParams = {
       to_name: name,
       to_email: email,
@@ -708,21 +744,22 @@ const initContactForm = () => {
 
     emailjs
       .send(
-        "service_9qt2rc5",        // Replace with service ID
-        "template_60tqodl",       // Replace with admin template ID
+        "service_9qt2rc5",      // Replace with service ID
+        "template_60tqodl",     // Replace with admin template ID
         adminParams
       )
       .then(() => {
-        // Send auto-reply
         return emailjs.send(
-          "service_9qt2rc5",          // Replace with service ID
-          "template_szss3td",       // Replace with client templete ID
+          "YOUR_SERVICE_ID",
+          "template_szss3td", // Replace with Client template ID
           autoReplyParams
         );
       })
       .then(() => {
+        localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
+
         status.textContent =
-          "Message sent successfully. You will receive a confirmation email.";
+          "Message sent successfully. A confirmation email has been sent.";
         status.classList.remove("error");
         form.reset();
       })
@@ -918,6 +955,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
