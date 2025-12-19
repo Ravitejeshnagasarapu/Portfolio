@@ -677,6 +677,7 @@ const initProjects = () => {
 };
 
 // ============ CONTACT FORM ============
+// ============ CONTACT FORM ============
 const initContactForm = () => {
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
@@ -687,20 +688,18 @@ const initContactForm = () => {
 
   const pageLoadTime = Date.now();
 
-  // ✅ Initialize EmailJS ONCE
-  emailjs.init("mMZFONIDdi84BklTT"); // Replace with emailJS public key
+  // Initialize EmailJS ONCE
+  emailjs.init("mMZFONIDdi84BklTT");  // Replace with emailJS public ID
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const now = Date.now();
 
-    /* 🪤 Honeypot check (bot protection) */
-    if (honeypot && honeypot.value.trim() !== "") {
-      return;
-    }
+    /* Honeypot check */
+    if (honeypot && honeypot.value.trim() !== "") return;
 
-    /* ⏱ Rate limiting */
+    /* Rate limiting */
     const lastSent = localStorage.getItem(CONTACT_LAST_SENT_KEY);
     if (lastSent && now - Number(lastSent) < CONTACT_COOLDOWN_MS) {
       const remaining = Math.ceil(
@@ -711,7 +710,7 @@ const initContactForm = () => {
       return;
     }
 
-    /* ⏳ Time-on-page check */
+    /* Time-on-page check */
     if (now - pageLoadTime < MIN_TIME_ON_PAGE_MS) {
       status.textContent = "Please wait a few seconds before submitting.";
       status.className = "form-status visible error";
@@ -728,43 +727,41 @@ const initContactForm = () => {
       return;
     }
 
-    /* 🔄 UI: loading state */
     submitBtn.disabled = true;
     submitBtn.classList.add("loading");
     status.textContent = "Sending message...";
     status.className = "form-status visible";
 
-    /* 📧 Send email to YOU */
     emailjs
+      // 1️⃣ Admin email
       .send("service_9qt2rc5", "template_60tqodl", {  // Replace with emailJS server and admin templete ID's
         from_name: name,
         from_email: email,
         message: message,
       })
+      // 2️⃣ Auto-reply
       .then(() => {
-        // 2️⃣ Auto-reply to sender
         return emailjs.send("service_9qt2rc5", "template_szss3td", {  // Replace with emailJS server and client templete ID's
           to_name: name,
           to_email: email,
         });
       })
+      // 3️⃣ Success UI
       .then(() => {
         status.textContent =
           "Message sent successfully. A confirmation email has been sent.";
         status.className = "form-status visible";
         form.reset();
-    
         localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
       })
-        // ✅ Save timestamp for rate limiting
-        localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
-      })
+      // 4️⃣ Error handling
       .catch((error) => {
         console.error("EmailJS error:", error);
         status.textContent =
           "Message could not be sent. Please try again later.";
         status.className = "form-status visible error";
       })
+      // 5️⃣ Always reset UI
       .finally(() => {
         submitBtn.disabled = false;
         submitBtn.classList.remove("loading");
@@ -952,6 +949,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
