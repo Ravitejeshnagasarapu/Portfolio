@@ -173,8 +173,8 @@ const projects = [
     description:
       "A modern, responsive personal portfolio built with HTML, CSS, and JavaScript, featuring glassmorphism design, dark mode, and smooth animations.",
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-    link: null,
-    github: null,
+    link: "https://ravitejeshnagasarapu.github.io/Portfolio",
+    github: "https://github.com/Ravitejeshnagasarapu/Portfolio",
     image: "contents/Images/preview.png",
   },
 ];
@@ -868,6 +868,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
