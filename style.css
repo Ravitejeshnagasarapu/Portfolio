@@ -1615,9 +1615,6 @@ section::after {
 
 /* Experience links container */
 .experience-links {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   display: flex;
   gap: 0.5rem;
   z-index: 3;
@@ -2763,13 +2760,6 @@ section::after {
 }
 
 @media (max-width: 480px) {
-  .experience-links {
-    right: 0.75rem;
-    top: 0.75rem;
-  }
-}
-
-@media (max-width: 480px) {
   :focus-visible {
     box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--color-rose);
   }
@@ -3091,5 +3081,24 @@ body.dark .navbar.scrolled {
 @media (hover: none) and (pointer: coarse) {
   .dark .experience-links {
     border-top-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .experience-links {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-gray-200);
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .dark .experience-links {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .experience-icon {
+    opacity: 1;
+    transform: none;
   }
 }
