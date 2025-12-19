@@ -753,6 +753,9 @@ const initContactForm = () => {
         status.className = "form-status visible";
         form.reset();
         localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
+        setTimeout(() => {
+          status.classList.remove("visible");
+        }, 6000);
       })
       // 4️⃣ Error handling
       .catch((error) => {
@@ -949,17 +952,3 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
