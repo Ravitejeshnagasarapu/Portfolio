@@ -2925,3 +2925,47 @@ body.dark .navbar.scrolled {
     margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
   }
 }
+
+/* =====================================================
+  HARD DISABLE HOVER + BLUR ON TOUCH DEVICES
+   ===================================================== */
+@media (hover: none) and (pointer: coarse) {
+
+  /* ❌ Completely remove blur overlay */
+  .experience-card::after {
+    display: none !important;
+    opacity: 0 !important;
+  }
+
+  /* ❌ Disable hover transform */
+  .experience-card {
+    transform: none !important;
+  }
+
+  /* ✅ Make icons part of layout */
+  .experience-links {
+    position: relative !important;
+    inset: auto !important;
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    z-index: 2;
+  }
+
+  /* ✅ Icons always visible */
+  .experience-icon {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+
+  /* ❌ Kill hover triggers completely */
+  .experience-card:hover,
+  .experience-card:hover::after,
+  .experience-card:hover .experience-icon {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
