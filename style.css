@@ -3171,9 +3171,12 @@ body.dark .navbar.scrolled {
   font-size: 0.9rem;
   color: var(--color-green-500);
   display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 .form-status.visible {
   display: block;
+  opacity: 1;
 }
 .form-status.error {
   color: #ef4444;
@@ -3208,3 +3211,4 @@ body.dark .navbar.scrolled {
   opacity: 0;
   pointer-events: none;
 }
+
