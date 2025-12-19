@@ -1634,10 +1634,25 @@ section::after {
   justify-content: center;
   color: var(--accent-primary);
   box-shadow: var(--shadow-md);
-  opacity: 0;
+  /* opacity: 0;
   transform: translateY(-6px) scale(0.9);
   transition: transform 0.25s ease, opacity 0.25s ease,
-    background-color 0.25s ease, color 0.25s ease;
+    background-color 0.25s ease, color 0.25s ease; */
+}
+
+/* Desktop default (hover-capable devices only) */
+@media (hover: hover) and (pointer: fine) {
+  .experience-icon {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.9);
+    transition: transform 0.25s ease, opacity 0.25s ease,
+      background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .experience-card:hover .experience-icon {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .dark .experience-icon {
@@ -1735,13 +1750,6 @@ section::after {
   .experience-icon,
   .project-icon-link {
     will-change: transform, opacity;
-  }
-}
-
-/* Disable hover overlay on touch devices */
-@media (hover: none) and (pointer: coarse) {
-  .experience-card::after {
-    display: none;
   }
 }
 
@@ -2767,11 +2775,6 @@ section::after {
   }
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .experience-links {
-    opacity: 1;
-  }
-
   .experience-icon {
     opacity: 1;
     transform: scale(1);
@@ -2968,4 +2971,30 @@ body.dark .navbar.scrolled {
   }
 }
 
+/* ================================
+   MOBILE: EXPERIENCE ICON
+   ================================ */
+@media (hover: none) and (pointer: coarse) {
 
+  .experience-links {
+    position: static;
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .experience-icon {
+    opacity: 1;
+    transform: none;
+    display: flex;
+    background: var(--bg-primary);
+    color: var(--accent-primary);
+  }
+
+  /* Ensure SVG inherits color */
+  .experience-icon svg {
+    stroke: currentColor;
+    fill: none;
+  }
+}
