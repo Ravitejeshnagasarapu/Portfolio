@@ -673,18 +673,40 @@ const initProjects = () => {
 // ============ CONTACT FORM ============
 const initContactForm = () => {
   const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  if (!form || !status) return;
+
+  // Initialize EmailJS
+  emailjs.init("mMZFONIDdi84BklTT"); // Replace With Public ID
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    status.textContent = "Sending message...";
+    status.className = "form-status visible";
 
-    const status = document.getElementById("formStatus");
-    status.textContent = `Thanks ${name}, your message has been received.`;
-    status.classList.add("visible");
-    form.reset();
+    const templateParams = {
+      from_name: document.getElementById("name").value,
+      from_email: document.getElementById("email").value,
+      message: document.getElementById("message").value,
+    };
+
+    emailjs
+      .send(
+        "service_9qt2rc5",   // Replace with service ID
+        "template_60tqodl",  // Replace with templete ID
+        templateParams
+      )
+      .then(() => {
+        status.textContent = "Message sent successfully!";
+        status.classList.remove("error");
+        form.reset();
+      })
+      .catch(() => {
+        status.textContent = "Failed to send message. Try again.";
+        status.classList.add("error");
+      });
   });
 };
 
@@ -868,6 +890,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
