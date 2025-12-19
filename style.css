@@ -2761,6 +2761,42 @@ section::after {
   }
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .experience-links {
+    opacity: 1;
+  }
+
+  .experience-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .experience-card {
+    padding-bottom: 1.5rem;
+  }
+
+  .experience-links {
+    position: static;              /* remove absolute */
+    margin-top: 1rem;              /* space below text */
+    display: flex;
+    justify-content: flex-start;   /* align nicely */
+    gap: 0.75rem;
+  }
+
+  .experience-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .experience-links {
+    justify-content: center;
+  }
+}
+
 /* ================================================
    ACCESSIBILITY: KEYBOARD FOCUS STYLES
    ================================================ */
@@ -2855,3 +2891,4 @@ body.dark .navbar.scrolled {
     margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
   }
 }
+
