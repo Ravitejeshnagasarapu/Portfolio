@@ -61,6 +61,7 @@ const experienceData = [
     company: "AWS",
     type: "virtual work experience",
     role: "Solutions Architecture",
+    date: "July 2025",
     links: {
       certificate:
         "contents/Certifications/AWS_Solutions_Architecture__Ravi_Tejesh_Nagasarapu.pdf",
@@ -72,6 +73,7 @@ const experienceData = [
     company: "HP Life",
     type: "virtual work experience",
     role: "AI for Beginners",
+    date: "March 2025",
     links: {
       certificate:
         "contents/Certifications/HP_LIFE_AI_for_Beginners_Ravi_Tejesh_Nagasarapu.pdf",
@@ -83,6 +85,7 @@ const experienceData = [
     company: "Tata",
     type: "virtual work experience",
     role: "GenAI Powered Data Analyst",
+    date: "July 2025",
     links: {
       certificate:
         "contents/Certifications/Tata_GenAI_Powered_Data_Analytics_Ravi_Tejesh_Nagasarapu.pdf",
@@ -94,6 +97,7 @@ const experienceData = [
     company: "Electronic Arts",
     type: "virtual work experience",
     role: "Software Engineering",
+    date: "Feb 2025",
     links: {
       certificate:
         "contents/Certifications/EArts_Certification_Ravi_Tejesh_Nagasarapu.pdf",
@@ -105,6 +109,7 @@ const experienceData = [
     company: "Verizon",
     type: "virtual work experience",
     role: "Cloud Platform",
+    date: "Feb 2025",
     links: {
       certificate:
         "contents/Certifications/Verizon_Cloud_Computing_Ravi_Tejesh_Nagasarapu.pdf",
@@ -116,6 +121,7 @@ const experienceData = [
     company: "TCS iON",
     type: "Certificate of Achievement",
     role: "Young Professional",
+    date: "April 2025",
     links: {
       certificate:
         "contents/Certifications/TCS_ION_Young_Professional_Ravi_Tejesh_Nagasarapu.pdf",
@@ -127,6 +133,7 @@ const experienceData = [
     company: "Mastercard",
     type: "virtual work experience",
     role: "Cybersecurity",
+    date: "July 2025",
     links: {
       certificate:
         "contents/Certifications/Master_card_Cybersecurity_Ravi_Tejesh_Nagasarapu.pdf",
@@ -138,6 +145,7 @@ const experienceData = [
     company: "Skyscanner",
     type: "virtual work experience",
     role: "Software Engineering",
+    date: "March 2025",
     links: {
       certificate:
         "contents/Certifications/SkyScanner_Certificate_Ravi_Tejesh_Nagasarapu.pdf",
@@ -855,4 +863,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
