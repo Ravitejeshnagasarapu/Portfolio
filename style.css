@@ -1615,6 +1615,7 @@ section::after {
 
 /* Experience links container */
 .experience-links {
+  margin-top: 12px;
   display: flex;
   gap: 0.5rem;
   z-index: 3;
@@ -2834,6 +2835,14 @@ section::after {
   }
 }
 
+@media (hover: none) {
+  .experience-card:hover {
+    transform: none;
+    box-shadow: var(--card-shadow);
+  }
+}
+
+
 /* ================================================
    ACCESSIBILITY: KEYBOARD FOCUS STYLES
    ================================================ */
@@ -3112,6 +3121,38 @@ body.dark .navbar.scrolled {
   gap: 12px;
 }
 
+/* ===== Experience meta (Role + Date) ===== */
+.experience-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.experience-role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Reuse Education date style */
+.experience-date.period {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Mobile: stack neatly */
+@media (max-width: 640px) {
+  .experience-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+
 /* Reuse Education date styling */
 .experience-date {
   font-size: inherit;          /* same as .period */
@@ -3129,4 +3170,5 @@ body.dark .navbar.scrolled {
     font-size: 0.85rem;
   }
 }
+
 
