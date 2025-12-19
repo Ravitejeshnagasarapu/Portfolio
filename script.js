@@ -686,16 +686,18 @@ const initContactForm = () => {
   if (!form || !status || !submitBtn) return;
 
   const pageLoadTime = Date.now();
-  emailjs.init("mMZFONIDdi84BklTT"); // Replace with public Key
+
+  // ✅ Initialize EmailJS ONCE
+  emailjs.init("mMZFONIDdi84BklTT"); // Replace with emailJS public key
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const now = Date.now();
 
-    /* 🪤 Honeypot check */
+    /* 🪤 Honeypot check (bot protection) */
     if (honeypot && honeypot.value.trim() !== "") {
-      return; // silently drop bot submission
+      return;
     }
 
     /* ⏱ Rate limiting */
@@ -709,7 +711,7 @@ const initContactForm = () => {
       return;
     }
 
-    /* 🤖 Time-on-page check */
+    /* ⏳ Time-on-page check */
     if (now - pageLoadTime < MIN_TIME_ON_PAGE_MS) {
       status.textContent = "Please wait a few seconds before submitting.";
       status.className = "form-status visible error";
@@ -726,56 +728,47 @@ const initContactForm = () => {
       return;
     }
 
+    /* 🔄 UI: loading state */
     submitBtn.disabled = true;
     submitBtn.classList.add("loading");
     status.textContent = "Sending message...";
     status.className = "form-status visible";
 
-    /* 🛡 reCAPTCHA v3 */
-    grecaptcha.ready(() => {
-      grecaptcha
-        .execute("6Lf7EjEsAAAAACL0EM8NaNtV9hor942OIUQaKThS", { action: "contact" }) // Replace with Site Key
-        .then((token) => {
-          // Send admin mail
-          return emailjs.send(
-            "service_9qt2rc5",  // Replace with emailJS service ID
-            "template_60tqodl", // Replace with emailJS admin templete ID
-            {
-              from_name: name,
-              from_email: email,
-              message: message,
-              "g-recaptcha-response": token,
-            }
-          );
-        })
-        .then(() => {
-          // Auto-reply
-          return emailjs.send(
-            "service_9qt2rc5",  // Replace with emailJS service ID
-            "template_szss3td",  // Replace with emailJS client templete ID
-            {
-              to_name: name,
-              to_email: email,
-            }
-          );
-        })
-        .then(() => {
-          localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
-          status.textContent =
-            "Message sent successfully. Confirmation email sent.";
-          status.classList.remove("error");
-          form.reset();
-        })
-        .catch(() => {
-          status.textContent =
-            "Message could not be sent. Please try again later.";
-          status.classList.add("error");
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.classList.remove("loading");
+    /* 📧 Send email to YOU */
+    emailjs
+      .send("service_9qt2rc5", "template_60tqodl", {  // Replace with emailJS server and admin templete ID's
+        from_name: name,
+        from_email: email,
+        message: message,
+      })
+      .then(() => {
+        // 2️⃣ Auto-reply to sender
+        return emailjs.send("service_9qt2rc5", "template_szss3td", {  // Replace with emailJS server and client templete ID's
+          to_name: name,
+          to_email: email,
         });
-    });
+      })
+      .then(() => {
+        status.textContent =
+          "Message sent successfully. A confirmation email has been sent.";
+        status.className = "form-status visible";
+        form.reset();
+    
+        localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
+      })
+        // ✅ Save timestamp for rate limiting
+        localStorage.setItem(CONTACT_LAST_SENT_KEY, now.toString());
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        status.textContent =
+          "Message could not be sent. Please try again later.";
+        status.className = "form-status visible error";
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("loading");
+      });
   });
 };
 
@@ -959,6 +952,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
