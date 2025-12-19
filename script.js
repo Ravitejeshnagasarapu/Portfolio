@@ -320,17 +320,27 @@ const renderSkills = () => {
     card.style.animationDelay = `${index * 0.1}s`;
 
     card.innerHTML = `
-      <div class="skill-icon ${skill.iconClass}">
-        <svg width="24" height="24" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2">
-          ${skill.iconSVG}
-        </svg>
-      </div>
-      <h3>${skill.title}</h3>
-      <div class="skill-tags">
-        ${skill.tags.map((tag) => `<span>${tag}</span>`).join("")}
+      <div class="experience-accent"></div>
+    
+      <div class="experience-content">
+        <div class="experience-top">
+          <h4>${exp.company}</h4>
+          <span class="experience-type">${exp.type}</span>
+        </div>
+    
+        <div class="experience-meta">
+          <span class="experience-role">${exp.role}</span>
+          <span class="experience-date">${exp.date}</span>
+        </div>
+    
+        ${
+          iconsHTML.length
+            ? `<div class="experience-links">${iconsHTML.join("")}</div>`
+            : ""
+        }
       </div>
     `;
+
 
     grid.appendChild(card);
   });
@@ -863,5 +873,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
