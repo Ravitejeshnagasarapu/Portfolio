@@ -1585,27 +1585,26 @@ section::after {
   font-weight: 500;
 }
 
-.experience-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 1;
+.experience-links {
+  position: relative;
+  margin-top: 0.75rem;
+  z-index: 5;
+}
+
+.experience-icon {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .experience-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-6px);
+  }
 }
 
 .dark .experience-card::after {
   background: rgba(3, 0, 39, 0.55);
-}
-
-@media (hover: hover) {
-  .experience-card:hover::after {
-    opacity: 1;
-  }
 }
 
 /* Keep content below blur */
@@ -2968,4 +2967,5 @@ body.dark .navbar.scrolled {
     opacity: 1 !important;
   }
 }
+
 
