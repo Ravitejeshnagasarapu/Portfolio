@@ -401,21 +401,21 @@ const renderExperience = () => {
 
     card.innerHTML = `
       <div class="experience-accent"></div>
-      <div class="experience-content-wrapper">
-        <div class="experience-content">
-          <div class="experience-top">
-            <h4>${exp.company}</h4>
-            <span class="experience-type">${exp.type}</span>
-          </div>
-          <p>${exp.role}</p>
+    
+      <div class="experience-content">
+        <div class="experience-top">
+          <h4>${exp.company}</h4>
+          <span class="experience-type">${exp.type}</span>
         </div>
+    
+        <p>${exp.role}</p>
+    
+        ${
+          iconsHTML.length
+            ? `<div class="experience-links">${iconsHTML.join("")}</div>`
+            : ""
+        }
       </div>
-
-      ${
-        iconsHTML.length
-          ? `<div class="experience-links">${iconsHTML.join("")}</div>`
-          : ""
-      }
     `;
 
     grid.appendChild(card);
@@ -855,3 +855,4 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
