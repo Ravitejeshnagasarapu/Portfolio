@@ -686,7 +686,7 @@ const initContactForm = () => {
   if (!form || !status || !submitBtn) return;
 
   const pageLoadTime = Date.now();
-  emailjs.init("YOUR_PUBLIC_KEY"); // 🔴 replace
+  emailjs.init("mMZFONIDdi84BklTT"); // Replace with public Key
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -959,6 +959,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setCurrentYear();
   initCertificateModal();
 });
+
 
 
 
