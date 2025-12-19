@@ -3166,3 +3166,15 @@ body.dark .navbar.scrolled {
     font-size: 0.85rem;
   }
 }
+/* For CSS feedback when form submitted */
+.form-status {
+  font-size: 0.9rem;
+  color: var(--color-green-500);
+  display: none;
+}
+.form-status.visible {
+  display: block;
+}
+.form-status.error {
+  color: #ef4444;
+}
