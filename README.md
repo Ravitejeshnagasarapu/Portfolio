@@ -30,7 +30,7 @@ A high-performance, responsive personal portfolio website designed to showcase m
 * **Hosting:** GitHub Pages.
 
 ## Technical Optimizations (Engineering)
-This portfolio was engineered to achieve a **100/100 Lighthouse Performance score** on Desktop and **95+ on Mobile**. Key techniques used:
+This portfolio was engineered to achieve a **97/100 Lighthouse Performance score** on Desktop and **92+ on Mobile**. Key techniques used:
 
 1.  **Critical Rendering Path:**
     * Used `fetchpriority="high"` and `<link rel="preload">` for the LCP (Largest Contentful Paint) image.
