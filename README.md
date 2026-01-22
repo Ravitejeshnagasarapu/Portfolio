@@ -74,7 +74,7 @@ This project is static and requires no build steps.
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Ravitejeshnagasarapu/Portfolio.git](https://github.com/Ravitejeshnagasarapu/Portfolio.git)
+   git clone https://github.com/Ravitejeshnagasarapu/Portfolio.git
    ```
 2. **Navigate to the directory:**
    ```bash
