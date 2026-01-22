@@ -55,13 +55,13 @@ This portfolio was engineered to achieve a **97/100 Lighthouse Performance score
   ```bash
   Portfolio/
   ├── contents/
-  │   ├── Certifications/   # PDF Proofs
-  │   ├── Images/           # Optimized WebP Assets
+  │   ├── Certifications/
+  │   ├── Images/
   │   └── Nagasarapu_Ravi_Tejesh_Resume.pdf
-  ├── index.html            # Semantic Markup
-  ├── style.css             # Minified Styles
-  ├── script.js             # Minified Logic (Deferred)
-  └── README.md             # Documentation
+  ├── index.html
+  ├── style.css
+  ├── script.js
+  └── README.md
   ```
 ## Featured Projects
 The portfolio highlights several key engineering projects:
