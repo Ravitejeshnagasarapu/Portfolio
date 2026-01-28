@@ -174,6 +174,26 @@ const projects = [
     image: "contents/Images/bone_age.webp",
   },
   {
+    title: "Natural Language to SQL Compiler",
+    category: "Tools & Core",
+    description:
+      "A full-stack compiler that translates Controlled Natural Language queries into executable SQL using a complete multi-stage compilation pipeline. The system performs lexical analysis, recursive-descent parsing to an AST, schema-aware semantic validation, and SQL code generation, with safe execution on SQLite. A FastAPI backend exposes the compiler, while a vanilla HTML/CSS/JavaScript frontend visualizes tokens, parse trees, generated SQL, and execution results in real time.",
+    tags: [
+      "Python",
+      "FastAPI",
+      "Compiler Design",
+      "Lexical Analysis",
+      "Recursive Descent Parsing",
+      "Semantic Analysis",
+      "SQL",
+      "SQLite",
+      "JavaScript"
+    ],
+    link: null,
+    github: "https://github.com/Ravitejeshnagasarapu/Natural-Language-to-SQL-Compiler",
+    image: "contents/Images/nl_sql_compiler.webp",
+  },
+  {
     title: "ConnectSphere – LAN Video Conferencing",
     category: "Tools & Core", 
     description:
