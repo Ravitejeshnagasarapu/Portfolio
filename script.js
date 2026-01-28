@@ -23,7 +23,7 @@ const skillsData = [
     color: "skill-blue",
     iconClass: "blue",
     tags: [
-      "Python", "Node.js", "Express.js", "FastAPI", "REST API Design", "Compiler Design", "Code Generation", "Socket Programming", "TCP / UDP", "Multithreading", "System Design" ],
+      "Python", "Java", "C", "Node.js", "Express.js", "FastAPI", "Compiler Design", "Socket Programming", "TCP / UDP", "Multithreading", "System Design"],
     iconSVG: `
       <rect x="2" y="2" width="20" height="8" rx="2"></rect>
       <rect x="2" y="14" width="20" height="8" rx="2"></rect>
@@ -33,7 +33,7 @@ const skillsData = [
     title: "AI & Data",
     color: "skill-green",
     iconClass: "green",
-    tags: [ "Artificial Intelligence", "Machine Learning", "Deep Learning", "PyTorch", "Torchvision", "Convolutional Neural Networks (CNNs)", "ResNet-18", "Computer Vision", "Medical Image Analysis", "Model Evaluation (MAE, RMSE, R²)", "Grad-CAM" ],
+    tags: [ "Artificial Intelligence", "Machine Learning", "PyTorch", "Convolutional Neural Networks (CNNs)", "ResNet-18",],
     iconSVG: `
       <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
       <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
@@ -44,7 +44,7 @@ const skillsData = [
     title: "Tools & Automation",
     color: "skill-orange",
     iconClass: "orange",
-    tags: [ "Git", "GitHub", "SQLite", "MySQL", "Environment Configuration (.env)", "Uvicorn", "NPM", "OpenCV", "NumPy", "Pandas", "Matplotlib", "Seaborn", "PyAudio", "CustomTkinter" ],
+    tags: [ "Git", "GitHub", "MySQL", "Environment Configuration (.env)", "NPM", "OpenCV", "NumPy", "Pandas", "Matplotlib", "Seaborn", "PyAudio"],
     iconSVG: `
       <path
         d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
@@ -55,7 +55,7 @@ const skillsData = [
     title: "Cloud Computing",
     color: "skill-sky",
     iconClass: "sky",
-    tags: ["AWS (Basic)", "Cloud Computing (Fundamentals)", "Local & LAN Deployment", "Client–Server Architecture" ],
+    tags: ["AWS (Basic)", "Cloud Computing (Fundamentals)", "Client–Server Architecture" ],
     iconSVG: `
       <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
     `,
