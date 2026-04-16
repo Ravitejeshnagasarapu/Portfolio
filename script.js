@@ -11,7 +11,7 @@ const skillsData = [
     title: "Frontend Development",
     color: "skill-purple",
     iconClass: "",
-    tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design", "Light/Dark Mode UI", "UI State Visualization"],
+    tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design"],
     iconSVG: `
       <rect x="3" y="3" width="18" height="18" rx="2"></rect>
       <line x1="3" y1="9" x2="21" y2="9"></line>
@@ -23,7 +23,7 @@ const skillsData = [
     color: "skill-blue",
     iconClass: "blue",
     tags: [
-      "Python", "Java", "C", "Node.js", "Express.js", "FastAPI", "Compiler Design", "Socket Programming", "TCP / UDP", "Multithreading", "System Design"],
+      "Java", "Python", "C", "Node.js", "Express.js", "FastAPI", "Multithreading", "System Design"],
     iconSVG: `
       <rect x="2" y="2" width="20" height="8" rx="2"></rect>
       <rect x="2" y="14" width="20" height="8" rx="2"></rect>
@@ -33,7 +33,7 @@ const skillsData = [
     title: "AI & Data",
     color: "skill-green",
     iconClass: "green",
-    tags: [ "Artificial Intelligence", "Machine Learning", "PyTorch", "Convolutional Neural Networks (CNNs)", "ResNet-18",],
+    tags: [ "Artificial Intelligence", "Machine Learning", "PyTorch"],
     iconSVG: `
       <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
       <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
@@ -44,7 +44,7 @@ const skillsData = [
     title: "Tools & Automation",
     color: "skill-orange",
     iconClass: "orange",
-    tags: [ "Git", "GitHub", "MySQL", "Environment Configuration (.env)", "NPM", "OpenCV", "NumPy", "Pandas", "Matplotlib", "Seaborn", "PyAudio"],
+    tags: [ "Git", "GitHub", "MySQL", "OpenCV", "NumPy", "Pandas", "Matplotlib", "PyAudio"],
     iconSVG: `
       <path
         d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
@@ -55,7 +55,7 @@ const skillsData = [
     title: "Cloud Computing",
     color: "skill-sky",
     iconClass: "sky",
-    tags: ["AWS (Basic)", "Cloud Computing (Fundamentals)", "Client–Server Architecture" ],
+    tags: ["AWS (Basic)", "Cloud Computing (Fundamentals)", "Client–Server Architecture, Information Security" ],
     iconSVG: `
       <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
     `,
@@ -172,7 +172,7 @@ const projects = [
     tags: ["Python", "Reinforcement Learning", "Q-Learning", "SARSA", "MDP", "WebSockets"],
     link: null,
     github: "https://github.com/Ravitejeshnagasarapu/Adaptive-Traffic-Signal-Control-Using-Reinforcement-Learning",
-    image: "contents/Images/e.webp",
+    image: "contents/Images/traffic_signal.webp",
   },
   {
     title: "Automated Bone Age Assessment",
