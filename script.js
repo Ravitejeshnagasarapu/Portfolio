@@ -168,7 +168,7 @@ const projects = [
     title: "Adaptive Traffic Signal Control using Reinforcement Learning",
     category: "AI & Automation",
     description:
-      "An intelligent traffic signal control system modeled as a Markov Decision Process (MDP), using Q-Learning and SARSA to dynamically optimize traffic flow at a four-way intersection. The system minimizes average waiting time, reduces congestion, and improves throughput through real-time decision-making. Includes a custom simulation environment, WebSocket-based live visualization, and a full analytics pipeline with performance comparison against a fixed-time baseline.",
+      "Developed an adaptive traffic signal control system using Reinforcement Learning (Q-Learning & SARSA) under an MDP framework. Designed a custom simulation environment with dynamic phase timing, fairness constraints, and emergency vehicle handling. Achieved improved traffic efficiency by reducing waiting time and congestion compared to traditional fixed-time control, with real-time visualization and detailed performance analytics.",
     tags: ["Python", "Reinforcement Learning", "Q-Learning", "SARSA", "MDP", "WebSockets"],
     link: null,
     github: "https://github.com/Ravitejeshnagasarapu/Adaptive-Traffic-Signal-Control-Using-Reinforcement-Learning",
