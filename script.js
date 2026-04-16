@@ -173,7 +173,7 @@ const projects = [
     link: null,
     github: "https://github.com/Ravitejeshnagasarapu/Adaptive-Traffic-Signal-Control-Using-Reinforcement-Learning",
     image: "contents/Images/e.webp",
-  }
+  },
   {
     title: "Automated Bone Age Assessment",
     category: "AI & Automation",
