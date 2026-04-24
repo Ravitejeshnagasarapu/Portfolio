@@ -23,7 +23,7 @@ const skillsData = [
     color: "skill-blue",
     iconClass: "blue",
     tags: [
-      "Java", "Python", "C", "Node.js", "Express.js", "FastAPI", "Multithreading", "System Design"],
+      "Java", "Python", "C", "Node.js", "Express.js", "FastAPI"],
     iconSVG: `
       <rect x="2" y="2" width="20" height="8" rx="2"></rect>
       <rect x="2" y="14" width="20" height="8" rx="2"></rect>
@@ -44,7 +44,7 @@ const skillsData = [
     title: "Tools & Automation",
     color: "skill-orange",
     iconClass: "orange",
-    tags: [ "Git", "GitHub", "MySQL", "OpenCV", "NumPy", "Pandas", "Matplotlib", "PyAudio"],
+    tags: [ "Git", "GitHub", "MySQL"],
     iconSVG: `
       <path
         d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
@@ -55,7 +55,7 @@ const skillsData = [
     title: "Cloud Computing",
     color: "skill-sky",
     iconClass: "sky",
-    tags: ["AWS (Basic)", "Cloud Computing (Fundamentals)", "Client–Server Architecture, Information Security" ],
+    tags: ["AWS (Basic)", "Cloud Computing (Fundamentals)"],
     iconSVG: `
       <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
     `,
@@ -164,29 +164,39 @@ const experienceData = [
 
 // ============  PROJECTS ============
 const projects = [
+      {
+      title: "Adaptive Traffic Signal Control using Reinforcement Learning",
+      category: "AI & Automation",
+      description:
+        "Developed an adaptive traffic signal control system using Reinforcement Learning (Q-Learning & SARSA) under an MDP framework. Designed a custom simulation environment with dynamic phase timing, fairness constraints, and emergency vehicle handling. Achieved improved traffic efficiency by reducing waiting time and congestion compared to traditional fixed-time control, with real-time visualization and detailed performance analytics.",
+      tags: ["Python", "Reinforcement Learning", "Q-Learning", "SARSA", "MDP", "WebSockets"],
+      link: null,
+      github: "https://github.com/Ravitejeshnagasarapu/Adaptive-Traffic-Signal-Control-Using-Reinforcement-Learning",
+      image: "contents/Images/traffic_signal.webp",
+    },
     {
-    title: "Adaptive Traffic Signal Control using Reinforcement Learning",
-    category: "AI & Automation",
+      title: "Automated Bone Age Assessment",
+      category: "AI & Automation",
+      description:
+        "An end-to-end Deep Learning pipeline using PyTorch and ResNet-18 to predict pediatric bone age from X-ray images. Achieved a Mean Absolute Error (MAE) of 11.33 months on the RSNA dataset, utilizing Grad-CAM for model interpretability.",
+      tags: ["Python", "PyTorch", "ResNet-18", "Deep Learning"],
+      link: null, 
+      github: "https://github.com/Ravitejeshnagasarapu/Bone-Age-Assessment",
+      image: "contents/Images/bone_age.webp",
+    },
+    {
+    title: "Secure IoT Device Authentication Using Lightweight Cryptography (SIOTDA)",
+    category: "Applied Computer Science & Core",
     description:
-      "Developed an adaptive traffic signal control system using Reinforcement Learning (Q-Learning & SARSA) under an MDP framework. Designed a custom simulation environment with dynamic phase timing, fairness constraints, and emergency vehicle handling. Achieved improved traffic efficiency by reducing waiting time and congestion compared to traditional fixed-time control, with real-time visualization and detailed performance analytics.",
-    tags: ["Python", "Reinforcement Learning", "Q-Learning", "SARSA", "MDP", "WebSockets"],
+      "Integrated AES-256-GCM to facilitate end-to-end encrypted, real-time communication via WebSockets. Implemented a robust challenge-response protocol leveraging HMAC-SHA256 and cryptographic nonces to prevent unauthorized access and ensure secure device provisioning",
+    tags: ["Python", "Flask", "Cryptography", "AES-256-GCM", "HMAC-SHA256", "WebSockets", "IoT Security"],
     link: null,
-    github: "https://github.com/Ravitejeshnagasarapu/Adaptive-Traffic-Signal-Control-Using-Reinforcement-Learning",
-    image: "contents/Images/traffic_signal.webp",
-  },
-  {
-    title: "Automated Bone Age Assessment",
-    category: "AI & Automation",
-    description:
-      "An end-to-end Deep Learning pipeline using PyTorch and ResNet-18 to predict pediatric bone age from X-ray images. Achieved a Mean Absolute Error (MAE) of 11.33 months on the RSNA dataset, utilizing Grad-CAM for model interpretability.",
-    tags: ["Python", "PyTorch", "ResNet-18", "Deep Learning"],
-    link: null, 
-    github: "https://github.com/Ravitejeshnagasarapu/Bone-Age-Assessment",
-    image: "contents/Images/bone_age.webp",
+    github: "https://github.com/Ravitejeshnagasarapu/Secure-IoT-Device-Authentication-Using-Lightweight-Cryptography",
+    image: "contents/Images/IS_Project.webp",
   },
   {
     title: "Natural Language to SQL Compiler",
-    category: "Tools & Core",
+    category: "Applied Computer Science & Core",
     description:
       "A full-stack compiler that translates Controlled Natural Language queries into executable SQL using a complete multi-stage compilation pipeline. The system performs lexical analysis, recursive-descent parsing to an AST, schema-aware semantic validation, and SQL code generation, with safe execution on SQLite. A FastAPI backend exposes the compiler, while a vanilla HTML/CSS/JavaScript frontend visualizes tokens, parse trees, generated SQL, and execution results in real time.",
     tags: [
@@ -206,11 +216,11 @@ const projects = [
   },
   {
     title: "ConnectSphere – LAN Video Conferencing",
-    category: "Tools & Core", 
+    category: "Applied Computer Science & Core", 
     description:
       "A full-featured Desktop GUI application for real-time video conferencing. Built with Python, it features a custom graphical interface for multi-user video streaming, screen sharing, and chat over a local network.",
     tags: ["Python GUI", "TCP/IP", "Socket Programming", "OpenCV", "Multithreading"],
-    link: "", 
+    link: null, 
     github: "https://github.com/Ravitejeshnagasarapu/ConnectSphere-CN-Project",
     image: "contents/Images/connectsphere_image.webp",
   },
